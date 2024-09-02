@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models\AutoGenerate;
+
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use App\Models\AutoGenerate\$controller;
+
+class $controllerPhoto extends Model
+{
+    protected $table = '$tableName_photos';
+    public function parent()
+    {
+        $this->belongsTo($controller::class,'parent_id');
+    }
+
+    protected $guarded = [];
+    public $timestamps = [];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logAll();
+    }
+}
