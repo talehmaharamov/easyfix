@@ -3,15 +3,15 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-    'name' => env('APP_NAME', 'ramagroup.az'),
+    'name' => env('APP_NAME', 'easyfix.com'),
     'env' => env('APP_ENV', 'production'),
     'debug' => (bool)env('APP_DEBUG', false),
     'url' => env('APP_URL'),
     'asset_url' => env('ASSET_URL'),
     'timezone' => 'Asia/Baku',
-    'locale' => 'az',
+    'locale' => 'en',
     'charset' => 'utf8',
-    'fallback_locale' => 'az',
+    'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => env('APP_KEY'),
     'cipher' => 'AES-256-CBC',

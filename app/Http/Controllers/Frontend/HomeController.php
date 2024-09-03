@@ -22,21 +22,8 @@ class HomeController extends Controller
     {
         $partners = Partner::all();
         $sliders = Slider::where('status', 1)->orderBy('order', 'asc')->get();
-        $carouselCategories = Category::where('parent_id', '<>', null)
-            ->where('is_home', 1)
-            ->with('content')
-            ->has('content', '>=', 3)
-            ->get();
-        $packages = Packages::where('status', 1)->orderBy('id', 'desc')->get();
-        $styles = Style::where('status',1)->where('is_home',1)->orderBy('created_at','desc')->get();
         return view('frontend.index', get_defined_vars());
 
-    }
-
-    public function packages(): View
-    {
-        $packages = Packages::where('status', 1)->orderBy('id', 'desc')->get();
-        return view('frontend.packages.index', get_defined_vars());
     }
 
     public function search(Request $request)
