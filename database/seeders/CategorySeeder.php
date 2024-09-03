@@ -14,32 +14,13 @@ class CategorySeeder extends Seeder
             [
                 'slug' => 'zuhur-construction',
                 'translation' => ['az' => 'Zühur İnşaat', 'en' => 'Zuhur Construction', 'ru' => 'Зухур Строительство'],
-                'subcategories' => [
-                    [
-                        'slug' => 'repair-and-construction',
-                        'translation' => ['az' => 'Təmir və tikinti', 'en' => 'Repair and construction', 'ru' => 'Ремонт и строительство'],
-                    ],
-                    [
-                        'slug' => 'repair-and-design',
-                        'translation' => ['az' => 'Təmir və dizayn', 'en' => 'Repair and design', 'ru' => 'Ремонт и дизайн'],
-                    ],
-                    [
-                        'slug' => 'construction-in-a-bowl',
-                        'translation' => ['az' => 'Qaba tikinti', 'en' => 'Construction in a bowl', 'ru' => 'Строительство в чаше'],
-                    ],
-                ]
             ],
             [
                 'slug' => 'first1',
                 'translation' => ['az' => 'Zühur Təmizlik', 'en' => 'Zuhur Cleaning', 'ru' => 'Зухур Чистота'],
-                'subcategories' => [
-                    [
-                        'slug' => 'cleaning-service',
-                        'translation' => ['az' => 'Təmizlik xidməti', 'en' => 'Cleaning service', 'ru' => 'Услуги по уборке'],
-                    ],
-                ]
             ],
         ];
+
         foreach ($categories as $cat) {
             $newCategory = new Category();
             $newCategory->slug = $cat['slug'];

@@ -2,9 +2,8 @@
 
 return [
     'locales' => [
-        'az',
         'en',
-        'ru'
+        'es'
     ],
     'locale_separator' => '-',
     'locale' => null,

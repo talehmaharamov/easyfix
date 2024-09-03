@@ -26,6 +26,12 @@ class HomeController extends Controller
 
     }
 
+    public function faq()
+    {
+
+        return view('frontend.faq.index', get_defined_vars());
+    }
+
     public function search(Request $request)
     {
         $categoryID = $request->category;
