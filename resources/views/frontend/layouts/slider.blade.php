@@ -3,7 +3,8 @@
         <div class="swiper-wrapper">
             @foreach($sliders as $slider)
                 <div class="swiper-slide">
-                    <div class="banner-one-start rts-banner-one rts-section-gap bg_image" style="background-image:url('{{ asset($slider->photo) }}')">
+                    <div class="banner-one-start rts-banner-one rts-section-gap bg_image"
+                         style="background-image:url('{{ asset($slider->photo) }}')">
                         <div class="banner-shape-area">
                             <img src="{{asset('frontend/images/banner/01.png')}}" alt="banner-shape"
                                  class="shape shape-1">
@@ -17,19 +18,19 @@
                                 <div class="col-lg-6">
                                     <div class="banner-main-wrapper-one pt--100 pb--100 pb_sm--40">
                                         <div class="pre-title">
-                                            <p>Hospitality & Leisure</p>
+                                            <p>
+                                                {{ getLocaleTranslation($slider,'title') }}
+                                            </p>
                                         </div>
 
-                                        <h1 class="title">
-                                            Smart Plumber <br>
-                                            Solutions for You <br>
-                                            24/7 Hours
-                                        </h1>
+                                        <p class="title">
+                                            {!!   getLocaleTranslation($slider,'description') !!}
+                                        </p>
                                         <div class="button-area">
-                                            <a href="appoinment.html" class="rts-btn btn-primary with-arrow">Request
-                                                Quote <i class="fa-regular fa-arrow-up-right"></i></a>
-                                            <a href="service.html" class="rts-btn btn-primary-white with-arrow">Our
-                                                Services</a>
+                                            <a href="{{ route('frontend.contact-page') }}" class="rts-btn btn-primary with-arrow">
+                                                @lang('backend.contact')
+                                                <i class="fa-regular fa-arrow-up-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
