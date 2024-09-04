@@ -8,7 +8,7 @@ return [
     'debug' => (bool)env('APP_DEBUG', false),
     'url' => env('APP_URL'),
     'asset_url' => env('ASSET_URL'),
-    'timezone' => 'Asia/Baku',
+    'timezone' => 'America/Los_Angeles',
     'locale' => 'en',
     'charset' => 'utf8',
     'fallback_locale' => 'en',
