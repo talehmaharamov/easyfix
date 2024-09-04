@@ -9,7 +9,7 @@
                     <div class="language-dropdown">
                         <select name="language" id="language" style="color: white" onchange="location = this.value;">
                             @foreach(active_langs() as $lang)
-                                <option style="color: black" value="/az">
+                                <option style="color: black" value="{{ route('frontend.frontLanguage',$lang->code) }}" @if(app()->getLocale() == $lang->code) selected @endif>
                                     {{ $lang->name }}
                                 </option>
                             @endforeach

@@ -1,3 +1,4 @@
+
 @extends('master.frontend')
 @section('title',__('title.contact'))
 @section('front')
@@ -8,7 +9,7 @@
                     <div class="con-tent-main">
                         <div class="wrapper">
                             <div class="slug">
-                                <a href="{{ route('frontend.index') }}">HOME /</a>
+                                <a href="{{ route('frontend.index') }}">@lang('backend.home-page') /</a>
                                 <a class="active" href="{{ route('frontend.index') }}">Contact</a>
                             </div>
                             <div class="title">

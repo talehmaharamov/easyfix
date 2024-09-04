@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 class ContentController extends Controller
 {
     use GeneralTrait;
+
     public function index()
     {
         check_permission('content index');
@@ -75,14 +76,16 @@ class ContentController extends Controller
             return redirect()->back();
         }
     }
+
     private function fillContentAttributes(Content $content, Request $request)
     {
         if ($request->hasFile('photo')) {
             $content->photo = upload('content', $request->file('photo'));
         }
-
+        $content->category_id = $request->category;
         $content->slug = $request->slug;
     }
+
     private function updateOrSaveContentTranslations(Content $content, Request $request)
     {
         foreach (active_langs() as $lang) {
@@ -91,7 +94,7 @@ class ContentController extends Controller
             if (!$translation) {
                 $translation = new ContentTranslation();
                 $translation->locale = $lang->code;
-                $translation->parent_id = $content->id;
+                $translation->content_id = $content->id;
             }
 
             $translation->name = $request->name[$lang->code];

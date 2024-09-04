@@ -15,14 +15,21 @@ Route::group(['middleware' => 'auth:admin', 'as' => 'backend.'], function () {
         SitemapGenerator::create('https://techfoz.az')->writeToFile(public_path('sitemap.xml'));
     });
 
+    //Content
+    Route::resource('/content', App\Http\Controllers\Backend\ContentController::class);
+    Route::get('content/{id}/delete', [App\Http\Controllers\Backend\ContentController::class, 'delete'])->name('contentDelete');
+    Route::get('content/{id}/change-status', [App\Http\Controllers\Backend\ContentController::class, 'status'])->name('contentStatus');
+
     //Categories
     Route::resource('/category', App\Http\Controllers\Backend\CategoryController::class);
     Route::get('category/{id}/delete', [App\Http\Controllers\Backend\CategoryController::class, 'delete'])->name('categoryDelete');
     Route::get('category/{id}/change-status', [App\Http\Controllers\Backend\CategoryController::class, 'status'])->name('categoryStatus');
+
     //Seo
     Route::resource('/seo', App\Http\Controllers\Backend\MetaController::class);
     Route::get('/seo/{id}/delete', [App\Http\Controllers\Backend\MetaController::class, 'delSeo'])->name('delSeo');
     Route::get('/seo/{id}/change-status', [App\Http\Controllers\Backend\MetaController::class, 'seoStatus'])->name('seoStatus');
+
     //Users
     Route::resource('/admins', \App\Http\Controllers\Backend\System\AdminController::class);
     Route::get('/admins/{id}/delete', [\App\Http\Controllers\Backend\System\AdminController::class, 'delAdmin'])->name('delAdmin');
@@ -84,6 +91,9 @@ Route::group(['middleware' => 'auth:admin', 'as' => 'backend.'], function () {
     Route::get('/report/{id}/delete', [\App\Http\Controllers\Backend\System\ReportController::class, 'delReport'])->name('delReport');
     Route::get('/report/clean-all', [\App\Http\Controllers\Backend\System\ReportController::class, 'cleanAllReport'])->name('cleanAllReport');
     Route::get('reports', [\App\Http\Controllers\Backend\System\ReportController::class, 'index'])->name('report');
+
+    Route::get('content/photo/{id}/delete', [App\Http\Controllers\Backend\ContentController::class, 'deletePhoto'])->name('contentPhotoDelete');
+
 
 });
 Route::fallback(function () {

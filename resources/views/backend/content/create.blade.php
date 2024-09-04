@@ -74,21 +74,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label>@lang('backend.category')</label>--}}
-{{--                                            <select class="form-control" name="category">--}}
-{{--                                                @foreach($mainCategories as $ctgry)--}}
-{{--                                                    <optgroup--}}
-{{--                                                        label="{{ $ctgry->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}">--}}
-{{--                                                        @foreach($ctgry->subcategories as $subCat)--}}
-{{--                                                            <option--}}
-{{--                                                                value="{{ $subCat->id }}">{{ $subCat->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</option>--}}
-{{--                                                        @endforeach--}}
-{{--                                                    </optgroup>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-                                        {{--                                        @livewire('content-category')--}}
                                         <div class="mb-3">
                                             <label>@lang('backend.slug') <span class="text-danger">*</span></label>
                                             <input name="slug" type="text" id="slug" class="form-control" required
@@ -96,9 +81,16 @@
                                             {!! validation_response('backend.slug') !!}
                                         </div>
                                         <div class="mb-3">
-                                            <label>PDF</label>
-                                            <input name="pdf" type="file" class="form-control"
-                                                   accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                                            <label>
+                                                @lang('backend.category')
+                                            </label>
+                                            <select class="form-control" name="category">
+                                                @foreach($generalCategories as $genCat)
+                                                    <option value="{{ $genCat->id }}">
+                                                        {{ getLocaleTranslation($genCat,'name') }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.photo') <span
