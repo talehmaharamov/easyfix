@@ -22,6 +22,7 @@ class HomeController extends Controller
     {
         $partners = Partner::all();
         $sliders = Slider::where('status', 1)->orderBy('order', 'asc')->get();
+        $allProjects = Content::where('status', 1)->get();
         return view('frontend.index', get_defined_vars());
 
     }
