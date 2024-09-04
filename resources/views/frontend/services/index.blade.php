@@ -1,5 +1,5 @@
 @extends('master.frontend')
-@section('title',__('backend.project'))
+@section('title',__('backend.service'))
 @section('front')
     <div class="rts-bread-crumb-area ptb--65 bg_image bg-breadcrumb">
         <div class="container">
@@ -10,12 +10,12 @@
                             <div class="slug">
                                 <a href="{{ route('frontend.index') }}">@lang('backend.home-page') /</a>
                                 <a class="active" href="{{ route('frontend.index') }}">
-                                    @lang('backend.project')
+                                    @lang('backend.service')
                                 </a>
                             </div>
                             <div class="title">
                                 <a href="#">
-                                   @lang('backend.project')
+                                    @lang('backend.service')
                                 </a>
                             </div>
                         </div>
@@ -27,22 +27,22 @@
     <div class="rts-blog-area">
         <div class="container pb--160">
             <div class="row g-24 mt--20">
-                @foreach($projects as $project)
+                @foreach($services as $service)
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="blog-single-one text-center">
-                            <a href="{{ route('frontend.project',$project->slug) }}" class="thumbnail">
+                            <a href="{{ route('frontend.service',$service->slug) }}" class="thumbnail">
                                 <div class="inner">
-                                    <img src="{{ asset($project->photo) }}"
-                                         alt="{{ getLocaleTranslation($project,'alt') }}">
+                                    <img src="{{ asset($service->photo) }}"
+                                         alt="{{ getLocaleTranslation($service,'alt') }}">
                                 </div>
                             </a>
                             <div class="body text-start">
-                                <a href="{{ route('frontend.selectedContent',$project->slug) }}">
+                                <a href="{{ route('frontend.service',$service->slug) }}">
                                     <h5 class="title">
-                                        {{ getLocaleTranslation($project,'name') }}
+                                        {{ getLocaleTranslation($service,'name') }}
                                     </h5>
                                 </a>
-                                <a href="{{ route('frontend.project',$project->slug) }}"
+                                <a href="{{ route('frontend.selectedContent',$service->slug) }}"
                                    class="rts-btn btn-border radious-0">
                                     @lang('backend.load-more')
                                     <i class="fa-regular fa-arrow-up-right"></i>

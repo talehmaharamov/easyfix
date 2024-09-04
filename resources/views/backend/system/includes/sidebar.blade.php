@@ -2,7 +2,7 @@
     <div data-simplebar class="h-100" style="overflow-y: auto;">
         <div id="sidebar-menu">
             <ul class="metismenu list-unstyled" id="side-menu">
-{{--                {{ creation('Esger',true,true) }}--}}
+{{--                {{ creation('Service',true,true) }}--}}
                 <li>
                     <a href="{{ route('backend.dashboard') }}" class="waves-effect">
                         <i class="ri-home-4-fill"></i>
@@ -26,14 +26,22 @@
                         </a>
                     </li>
                 @endcan
-{{--                @can('project index')--}}
+                @can('service index')
+                    <li>
+                        <a href="{{ route('backend.service.index') }}" class="waves-effect">
+                            <i class="fas fa-box"></i>
+                            <span>@lang('backend.service')</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('content index')
                     <li>
                         <a href="{{ route('backend.content.index') }}" class="waves-effect">
                             <i class="fas fa-hard-hat"></i>
                             <span>@lang('backend.projects')</span>
                         </a>
                     </li>
-{{--                @endcan--}}
+                @endcan
                 @can('faq index')
                     <li>
                         <a href="{{ route('backend.faq.index') }}" class="waves-effect">

@@ -45,19 +45,15 @@
                             @lang('backend.home-page')
                         </a>
                     </li>
-                    <li class="has-dropdown">
-                        <a class="nav-link" href="#">
+                    <li>
+                        <a class="nav-link" href="{{ route('frontend.services') }}">
                             @lang('backend.service')
                         </a>
-                        <ul class="submenu">
-                            @foreach($generalCategories as $genCat)
-                                <li>
-                                    <a href="{{ route('frontend.selectedCategory',$genCat->slug) }}">
-                                        {{ getLocaleTranslation($genCat,'name') }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('frontend.projects') }}">
+                            @lang('backend.projects')
+                        </a>
                     </li>
                     <li>
                         <a class="nav-link" href="{{ route('frontend.faq') }}">

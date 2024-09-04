@@ -15,7 +15,9 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div class="contact-info">
-                                    <p>Phone Number</p>
+                                    <p>
+                                        @lang('backend.phone')
+                                    </p>
                                     <a href="tel:{{ settings('phone') }}">
                                         {{ settings('phone') }}
                                     </a>
@@ -28,7 +30,9 @@
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div class="contact-info">
-                                    <p>Email Us Here</p>
+                                    <p>
+                                        @lang('backend.email')
+                                    </p>
                                     <a href="mailto:{{ settings('email') }}">
                                         {{ settings('email') }}
                                     </a>
