@@ -123,8 +123,8 @@
 
 for (let i = 1; i < 10; i++) {
     $(document).ready(function () {
-        $("#elmaz" + i).length && tinymce.init({
-            selector: "textarea#elmaz" + i,
+        $("#elmes" + i).length && tinymce.init({
+            selector: "textarea#elmes" + i,
             height: 300,
             plugins: ["image code advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker", "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking", "save table contextmenu directionality emoticons template paste textcolor"],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",

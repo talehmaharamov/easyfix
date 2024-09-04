@@ -12,18 +12,11 @@ class SettingSeeder extends Seeder
     public function run()
     {
         $settings = [
-            ['name' => 'phone', 'link' => '+994500000000'],
-            ['name' => 'facebook', 'link' => 'https://facebook.com'],
-            ['name' => 'instagram', 'link' => 'https://www.instagram.com/'],
-            ['name' => 'youtube', 'link' => 'https://www.youtube.com/'],
-            ['name' => 'email', 'link' => 'site@example.az'],
-            ['name' => 'mail_receiver', 'link' => 'site@example.com'],
+            ['name' => 'phone', 'link' => '+19453083083'],
+            ['name' => 'email', 'link' => 'easyfixfollc@gmail.com'],
+            ['name' => 'mail_receiver', 'link' => 'easyfixfollc@gmail.com'],
         ];
-        foreach (active_langs() as $lang){
-            $settings = [
-                ['name' => 'address_'.$lang->code, 'link' => 'example_'.$lang->code],
-            ];
-        }
+
         foreach ($settings as $key => $setting) {
             $set = new Setting();
             $set->name = $setting['name'];

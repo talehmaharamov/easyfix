@@ -32,17 +32,20 @@ if (!function_exists('upload')) {
             if (!File::isDirectory(public_path('images/' . $path))) {
                 File::makeDirectory(public_path('images/' . $path), 0777, true, true);
             }
-            $filename = uniqid() . '.webp';
-            Image::make($file)->resize(null, 800, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })->encode('webp', 75)->save(public_path('images/' . $path . '/' . $filename), 60);
+
+            $extension = $file->getClientOriginalExtension();
+
+            $filename = uniqid() . '.' . $extension;
+
+            $file->move(public_path('images/' . $path), $filename);
+
             return 'images/' . $path . '/' . $filename;
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 }
+
 
 if (!function_exists('video_upload')) {
     function video_upload($file)
@@ -103,7 +106,7 @@ if (!function_exists('multi_upload')) {
 if (!function_exists('creation')) {
     function creation($name, $translateModel = false, $photoModel = false)
     {
-        \App\Utils\Helpers\CodeCreator::create($name,$translateModel,$photoModel);
+        \App\Utils\Helpers\CodeCreator::create($name, $translateModel, $photoModel);
     }
 }
 
