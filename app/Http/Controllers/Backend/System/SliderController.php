@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 class SliderController extends Controller
 {
     use GeneralTrait;
+
     public function index()
     {
         check_permission('slider index');
@@ -42,7 +43,7 @@ class SliderController extends Controller
             $slider->order = $sliderOrder;
             $slider->save();
 
-            $this->updateOrSaveSliderTranslations($slider,$request);
+            $this->updateOrSaveSliderTranslations($slider, $request);
 
             alert()->success(__('messages.success'));
             return redirect(route('backend.slider.index'));
@@ -58,8 +59,9 @@ class SliderController extends Controller
         try {
             $slider = Slider::find($id);
             DB::transaction(function () use ($request, $slider) {
-                $this->updateExistsPhoto($request,$slider,'slider');
-                $this->updateOrSaveSliderTranslations($slider,$request);
+                $this->updateExistsPhoto($request, $slider, 'slider');
+                $this->updateOrSaveSliderTranslations($slider, $request);
+                $slider->save();
             });
             alert()->success(__('messages.success'));
             return redirect(route('backend.slider.index'));
@@ -75,6 +77,7 @@ class SliderController extends Controller
         $slider = Slider::find($id);
         return view('backend.system.slider.edit', get_defined_vars());
     }
+
     private function updateOrSaveSliderTranslations(Slider $slider, Request $request)
     {
         foreach (active_langs() as $lang) {
@@ -83,7 +86,7 @@ class SliderController extends Controller
             if (!$translation) {
                 $translation = new SliderTranslation();
                 $translation->locale = $lang->code;
-                $translation->slider_id  = $slider->id;
+                $translation->slider_id = $slider->id;
             }
 
             $translation->title = $request->title[$lang->code] ?? null;

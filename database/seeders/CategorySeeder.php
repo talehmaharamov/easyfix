@@ -12,12 +12,16 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'slug' => 'zuhur-construction',
-                'translation' => ['az' => 'Zühur İnşaat', 'en' => 'Zuhur Construction', 'ru' => 'Зухур Строительство'],
+                'slug' => 'home-appliance-repair',
+                'translation' => ['en' => 'Home Appliance Repair Service', 'es' => 'Servicio de Reparación de Electrodomésticos'],
             ],
             [
-                'slug' => 'first1',
-                'translation' => ['az' => 'Zühur Təmizlik', 'en' => 'Zuhur Cleaning', 'ru' => 'Зухур Чистота'],
+                'slug' => 'fridge-repair',
+                'translation' => ['en' => 'Fridge Repair Service', 'es' => 'Servicio de Reparación de Refrigeradores'],
+            ],
+            [
+                'slug' => 'washing-machine-repair',
+                'translation' => ['en' => 'Washing Machine Repair Service', 'es' => 'Servicio de Reparación de Lavadoras'],
             ],
         ];
 
@@ -32,20 +36,7 @@ class CategorySeeder extends Seeder
                 $translation->name = $cat['translation'][$lang->code];
                 $translation->save();
             }
-            if (array_key_exists('subcategories', $cat)) {
-                foreach ($cat['subcategories'] as $altCat) {
-                    $subCategory = new Category();
-                    $subCategory->slug = $altCat['slug'];
-                    $newCategory->subcategories()->save($subCategory);
-                    foreach (active_langs() as $lang) {
-                        $subTranslation = new CategoryTranslation();
-                        $subTranslation->locale = $lang->code;
-                        $subTranslation->category_id = $subCategory->id;
-                        $subTranslation->name = $altCat['translation'][$lang->code];
-                        $subTranslation->save();
-                    }
-                }
-            }
         }
+
     }
 }
