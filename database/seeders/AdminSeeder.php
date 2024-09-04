@@ -12,21 +12,9 @@ class AdminSeeder extends Seeder
     {
         $admin = Admin::create([
             'name' => 'Admin',
-            'email' => 'admin@techfoz.az',
-            'password' => '$2y$10$hcn0QuYc5NOiKrjaNMGNIeITHW3bzJ6UeTVWWg/1ZaFQ8eXX1Incm' //Password
-        ]);
-        $seo = Admin::create([
-            'name' => 'SEO',
-            'email' => 'seo@techfoz.az',
-            'password' => '$2y$10$hcn0QuYc5NOiKrjaNMGNIeITHW3bzJ6UeTVWWg/1ZaFQ8eXX1Incm' //Password
-        ]);
-        $developer = Admin::create([
-            'name' => 'Developer',
-            'email' => 'developer@techfoz.az',
+            'email' => 'admin@easyfix.com',
             'password' => '$2y$10$hcn0QuYc5NOiKrjaNMGNIeITHW3bzJ6UeTVWWg/1ZaFQ8eXX1Incm' //Password
         ]);
         $admin->givePermissionTo(Permission::all());
-        $seo->givePermissionTo(Permission::all());
-        $developer->givePermissionTo(Permission::all());
     }
 }

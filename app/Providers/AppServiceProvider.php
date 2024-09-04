@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $generalCategories = Category::with('subcategories.subcategories')->get();
+        $generalCategories = Category::where('status',1)->get();
         $mainCategories = Category::where('parent_id', null)->with('subcategories.subcategories')->get();
         $faqs = Faq::where('status', 1)->get();
         $faqSchemas = Faq::where('status', 1)->with('translation')->get()->pluck('translation.schema')->toArray();
