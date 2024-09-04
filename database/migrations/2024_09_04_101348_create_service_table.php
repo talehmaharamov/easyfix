@@ -7,11 +7,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('service', function (Blueprint $table) {
             $table->id();
             $table->longText('photo')->nullable();
             $table->string('slug')->unique();
-            $table->integer('view')->default(0);
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
@@ -19,6 +18,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('service');
     }
 };

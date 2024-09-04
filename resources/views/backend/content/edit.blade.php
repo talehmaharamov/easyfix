@@ -42,15 +42,6 @@
                                                         {!! validation_response('backend.content') !!}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label>@lang('backend.short-description') <span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea name="short_description[{{ $lan->code }}]"
-                                                                  id="elm{{$lan->code}}2"
-                                                                  class="form-control"
-                                                                  required="">{!! $content->translate($lan->code)->short_description ?? __('backend.translation-not-found') !!}</textarea>
-                                                        {!! validation_response('backend.short-description') !!}
-                                                    </div>
-                                                    <div class="mb-3">
                                                         <label>@lang('backend.title')(Meta)</label>
                                                         <input name="meta_title[{{ $lan->code }}]" type="text"
                                                                class="form-control"
@@ -76,18 +67,6 @@
                                             <input name="slug" id="slug" type="text" class="form-control" required=""
                                                    value="{{ $content->slug }}">
                                         </div>
-                                            <div class="mb-3">
-                                                <label>
-                                                    @lang('backend.category')
-                                                </label>
-                                                <select class="form-control" name="category">
-                                                    @foreach($generalCategories as $genCat)
-                                                        <option value="{{ $genCat->id }}" @if($content->category_id == $genCat->id) selected @endif>
-                                                            {{ getLocaleTranslation($genCat,'name') }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.photo') <span
                                                     class="text-danger">*</span></label>

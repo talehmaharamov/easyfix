@@ -94,7 +94,7 @@
                                                    id="validationCustom" accept="image/*">
                                             @if(file_exists($selection->photo))
                                                 <img style="width: 100%;max-height: 500px;"
-                                                     src="{{ asset($selection->photo) }}" alt="TechFOZ">
+                                                     src="{{ asset($selection->photo) }}" alt="FOZ">
                                             @endif
                                         </div>
                                         <div class="mb-3">

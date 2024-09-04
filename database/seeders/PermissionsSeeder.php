@@ -9,8 +9,6 @@ class PermissionsSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            'gloria',
-            'gloria',
             'about',
             'slider',
             'category',
@@ -25,6 +23,8 @@ class PermissionsSeeder extends Seeder
             'partner',
             'faq',
             'meta',
+            'service',
+            'content'
         ];
 
         foreach ($permissions as $permission) {

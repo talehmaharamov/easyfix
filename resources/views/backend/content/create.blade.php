@@ -42,16 +42,6 @@
                                                         {!! validation_response('backend.content') !!}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label>@lang('backend.short-description') <span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea name="short_description[{{ $lan->code }}]"
-                                                                  id="elm{{$lan->code}}2"
-                                                                  class="form-control"
-                                                                  required=""
-                                                                  placeholder="@lang('backend.short-description')"></textarea>
-                                                        {!! validation_response('backend.short-description') !!}
-                                                    </div>
-                                                    <div class="mb-3">
                                                         <label>@lang('backend.title')(Meta)</label>
                                                         <input name="meta_title[{{ $lan->code }}]" type="text"
                                                                class="form-control"
@@ -82,19 +72,9 @@
                                         </div>
                                         <div class="mb-3">
                                             <label>
-                                                @lang('backend.category')
+                                                @lang('backend.photo')
+                                                <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" name="category">
-                                                @foreach($generalCategories as $genCat)
-                                                    <option value="{{ $genCat->id }}">
-                                                        {{ getLocaleTranslation($genCat,'name') }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label>@lang('backend.photo') <span
-                                                    class="text-danger">*</span></label>
                                             <input name="photo" type="file" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
@@ -124,6 +104,7 @@
                 const slug = nameInputValue.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
                 slugInput.val(slug);
             }
+
             $('#nameen').on('input', generateSlugFromName);
         });
     </script>

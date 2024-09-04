@@ -51,7 +51,7 @@
                                 {{ getLocaleTranslation($service,'name') }}
                             </h3>
                             <p class="disc para-1">
-                                {!! getLocaleTranslation($service,'content') !!}
+                                {!! getLocaleTranslation($service,'description') !!}
                             </p>
 
                             <div class="row g-24">

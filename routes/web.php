@@ -25,9 +25,13 @@ Route::group(['prefix' => '/', 'as' => 'frontend.', 'middleware' => 'frontLangua
     Route::post('/newsletter-add-new', [FHome::class, 'newsletter'])->name('newsletter');
     Route::get('/newsletter/{id}/{token}', [FHome::class, 'verifyMail'])->name('verifyMail');
 
-    Route::get('faq',[FHome::class,'faq'])->name('faq');
 
+    Route::get('/services', [App\Http\Controllers\Frontend\CategoryController::class, 'index'])->name('services');
+    Route::get('/service/{slug}', [App\Http\Controllers\Frontend\CategoryController::class, 'show'])->name('service');
+    Route::get('/projects', [App\Http\Controllers\Frontend\CategoryController::class, 'projects'])->name('projects');
+    Route::get('/project/{slug}', [App\Http\Controllers\Frontend\CategoryController::class, 'project'])->name('project');
 
+    Route::get('faq', [FHome::class, 'faq'])->name('faq');
 
 
     Route::get('mail/test', function () {

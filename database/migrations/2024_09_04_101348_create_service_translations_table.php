@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('content_translations', function (Blueprint $table) {
+        Schema::create('service_translations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('content_id')->unsigned();
+            $table->foreignId('service_id')->unsigned();
             $table->string('locale')->index();
-            $table->longText('name');
-            $table->longText('content');
+            $table->longText('name')->nullable();
+            $table->longText('description')->nullable();
             $table->longText('meta_title')->nullable();
             $table->longText('meta_description')->nullable();
             $table->longText('alt')->nullable();
-            $table->unique(['content_id', 'locale']);
-            $table->foreign('content_id')->references('id')->on('contents')->onDelete('cascade');
+            $table->unique(['service_id', 'locale']);
+            $table->foreign('service_id')->references('id')->on('service')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('content_translations');
+        Schema::dropIfExists('service_translations_translations');
     }
 };
