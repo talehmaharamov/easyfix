@@ -26,6 +26,14 @@
                         </a>
                     </li>
                 @endcan
+{{--                @can('project index')--}}
+                    <li>
+                        <a href="{{ route('backend.content.index') }}" class="waves-effect">
+                            <i class="fas fa-hard-hat"></i>
+                            <span>@lang('backend.projects')</span>
+                        </a>
+                    </li>
+{{--                @endcan--}}
                 @can('faq index')
                     <li>
                         <a href="{{ route('backend.faq.index') }}" class="waves-effect">

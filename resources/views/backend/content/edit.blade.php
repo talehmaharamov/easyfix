@@ -76,34 +76,18 @@
                                             <input name="slug" id="slug" type="text" class="form-control" required=""
                                                    value="{{ $content->slug }}">
                                         </div>
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label>@lang('backend.category')</label>--}}
-{{--                                            <select class="form-control" name="category">--}}
-{{--                                                @foreach($mainCategories as $ctgry)--}}
-{{--                                                    <optgroup--}}
-{{--                                                        label="{{ $ctgry->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}">--}}
-{{--                                                        @foreach($ctgry->subcategories as $subCat)--}}
-{{--                                                            <option--}}
-{{--                                                                value="{{ $subCat->id }}"--}}
-{{--                                                                @if($content->category_id == $subCat->id) selected @endif>{{ $subCat->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</option>--}}
-{{--                                                        @endforeach--}}
-{{--                                                    </optgroup>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-                                        <div class="mb-3">
-                                            <label>PDF</label>
-                                            <div class="d-flex align-items-center">
-                                                <input name="pdf" type="file" class="form-control "
-                                                       accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
-                                                @if(file_exists($content->pdf))
-                                                    <a style="margin-left: 20px" href="{{ asset($content->pdf) }}"
-                                                       class="btn btn-primary col-2"><i
-                                                            class="fas fa-download"></i> PDF @lang('backend.download')
-                                                    </a>
-                                                @endif
+                                            <div class="mb-3">
+                                                <label>
+                                                    @lang('backend.category')
+                                                </label>
+                                                <select class="form-control" name="category">
+                                                    @foreach($generalCategories as $genCat)
+                                                        <option value="{{ $genCat->id }}" @if($content->category_id == $genCat->id) selected @endif>
+                                                            {{ getLocaleTranslation($genCat,'name') }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                        </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.photo') <span
                                                     class="text-danger">*</span></label>
