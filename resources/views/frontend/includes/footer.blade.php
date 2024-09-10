@@ -1,7 +1,7 @@
 
 
 
-<div class="rts-brand-area rts-section-gap">
+<div class="rts-brand-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

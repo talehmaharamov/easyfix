@@ -10,12 +10,12 @@
                             <div class="slug">
                                 <a href="{{ route('frontend.index') }}">@lang('backend.home-page') /</a>
                                 <a class="active" href="{{ route('frontend.index') }}">
-                                    @lang('backend.project')
+                                    @lang('backend.projects')
                                 </a>
                             </div>
                             <div class="title">
                                 <a href="#">
-                                   @lang('backend.project')
+                                   @lang('backend.projects')
                                 </a>
                             </div>
                         </div>
@@ -25,14 +25,14 @@
         </div>
     </div>
     <div class="rts-blog-area">
-        <div class="container pb--160">
+        <div class="container pb--80">
             <div class="row g-24 mt--20">
                 @foreach($projects as $project)
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="blog-single-one text-center">
                             <a href="{{ route('frontend.project',$project->slug) }}" class="thumbnail">
-                                <div class="inner">
-                                    <img src="{{ asset($project->photo) }}"
+                                <div class="inner" style="height: 300px;">
+                                    <img src="{{ asset($project->photo) }}" style="height: 100%"
                                          alt="{{ getLocaleTranslation($project,'alt') }}">
                                 </div>
                             </a>
@@ -52,6 +52,8 @@
                     </div>
                 @endforeach
             </div>
+
         </div>
+
     </div>
 @endsection

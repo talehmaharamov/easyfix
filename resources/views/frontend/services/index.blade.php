@@ -25,14 +25,14 @@
         </div>
     </div>
     <div class="rts-blog-area">
-        <div class="container pb--160">
+        <div class="container pb--80">
             <div class="row g-24 mt--20">
                 @foreach($services as $service)
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="blog-single-one text-center">
                             <a href="{{ route('frontend.service',$service->slug) }}" class="thumbnail">
-                                <div class="inner">
-                                    <img src="{{ asset($service->photo) }}"
+                                <div class="inner" style="height: 300px">
+                                    <img src="{{ asset($service->photo) }}" style="height: 100%"
                                          alt="{{ getLocaleTranslation($service,'alt') }}">
                                 </div>
                             </a>

@@ -9,7 +9,9 @@
                         <div class="wrapper">
                             <div class="slug">
                                 <a href="{{ route('frontend.index') }}">@lang('backend.home-page') /</a>
-                                <a class="active" href="{{ route('frontend.index') }}">Contact</a>
+                                <a class="active" href="{{ route('frontend.index') }}">
+                                    @lang('backend.contact')
+                                </a>
                             </div>
                             <div class="title">
                                 <a href="#">

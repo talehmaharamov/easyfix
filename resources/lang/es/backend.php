@@ -260,4 +260,5 @@
     'des-2' => 'Sistema de bomba de calor de fuente de aire que combina soluciones de calefacción, refrigeración y calefacción.',
     'des-3' => 'Plomería residencial',
     'des-4' => 'Sistema de bomba de calor de fuente de aire que combina soluciones de calefacción, refrigeración y calefacción.',
-);
+    'project' => 'Proyecto',
+    );

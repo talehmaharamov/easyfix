@@ -44,7 +44,7 @@
                                          class="accordion-collapse collapse @if($loop->first) show @endif "
                                          aria-labelledby="heading{{ $faqKey }}" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <div class="inner">
+                                            <div class="inner" >
                                                 <div class="content">
                                                     <p class="disc">
                                                         {!! getLocaleTranslation($faq,'description') !!}
