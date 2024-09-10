@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AutoGenerate\Service;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Content;
@@ -22,22 +23,22 @@ class HomeController extends Controller
     {
         $partners = Partner::all();
         $sliders = Slider::where('status', 1)->orderBy('order', 'asc')->get();
-        $allProjects = Content::where('status', 1)->get();
+        $allProjects = Content::where('status', 1)->orderBy('created_at', 'desc')->limit(8)->get();
+        $allServices = Service::where('status', 1)->orderBy('created_at', 'desc')->limit(8)->get();
+
         return view('frontend.index', get_defined_vars());
 
     }
 
     public function faq()
     {
-
         return view('frontend.faq.index', get_defined_vars());
     }
 
     public function search(Request $request)
     {
-        $categoryID = $request->category;
+//        dd($request->all());
         $keyword = $request->keyword;
-        $category = Category::where('id', $categoryID)->with('content')->first();
         $contents = Content::when($keyword, function ($query) use ($keyword) {
             return $query->orWhere('slug', 'LIKE', '%' . $keyword . '%')
                 ->orWhereTranslation('name', 'LIKE', '%' . $keyword . '%')
@@ -45,10 +46,18 @@ class HomeController extends Controller
                 ->orWhereTranslation('meta_description', 'LIKE', '%' . $keyword . '%')
                 ->orWhereTranslation('meta_title', 'LIKE', '%' . $keyword . '%')
                 ->orWhereTranslation('alt', 'LIKE', '%' . $keyword . '%');
-        })
-            ->where('category_id', $categoryID)
-            ->paginate(9);
-        return view('frontend.content.index', get_defined_vars());
+        })->get();
+
+        $services = Service::when($keyword, function ($query) use ($keyword) {
+            return $query->orWhere('slug', 'LIKE', '%' . $keyword . '%')
+                ->orWhereTranslation('name', 'LIKE', '%' . $keyword . '%')
+                ->orWhereTranslation('description', 'LIKE', '%' . $keyword . '%')
+                ->orWhereTranslation('meta_description', 'LIKE', '%' . $keyword . '%')
+                ->orWhereTranslation('meta_title', 'LIKE', '%' . $keyword . '%')
+                ->orWhereTranslation('alt', 'LIKE', '%' . $keyword . '%');
+        })->get();
+
+        return view('frontend.content.search', get_defined_vars());
     }
 
     public function searchByKeyword(Request $request)

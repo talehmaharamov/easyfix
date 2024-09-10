@@ -4,4 +4,5 @@
     @include('frontend.layouts.slider')
     @include('frontend.layouts.projects')
     @include('frontend.layouts.solutions')
+    @include('frontend.layouts.services')
 @endsection

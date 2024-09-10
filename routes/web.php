@@ -20,7 +20,7 @@ Route::group(['prefix' => '/', 'as' => 'frontend.', 'middleware' => 'frontLangua
     Route::get('/about', [FAbout::class, 'index'])->name('about');
     Route::get('/blogs', [\App\Http\Controllers\Frontend\BlogController::class, 'index'])->name('blogs');
     Route::get('/blog/{slug}', [\App\Http\Controllers\Frontend\BlogController::class, 'show'])->name('blog');
-    Route::post('/search', [FHome::class, 'search'])->name('search');
+    Route::get('/search', [FHome::class, 'search'])->name('search');
     Route::post('general/search', [FHome::class, 'searchByKeyword'])->name('searchByKeyword');
     Route::post('/newsletter-add-new', [FHome::class, 'newsletter'])->name('newsletter');
     Route::get('/newsletter/{id}/{token}', [FHome::class, 'verifyMail'])->name('verifyMail');
