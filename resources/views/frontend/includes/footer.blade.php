@@ -1,3 +1,22 @@
+
+
+
+<div class="rts-brand-area rts-section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="brand-plumbnail-wrapper">
+                    @foreach($partners as $partner)
+                        <img src="{{ asset($partner->photo) }}" alt="{{ $partner->alt }}">
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="rts-footer-one footer-bg-one mt--160 pb--85">
     <div class="container">
         <div class="row g-0 bg-cta-footer-one">
