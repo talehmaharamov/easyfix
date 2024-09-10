@@ -41,10 +41,20 @@
                         <form action="#" class="appoinment-form mt--40">
                             <div class="input-half-wrapper">
                                 <div class="single-input">
-                                    <input type="text" placeholder="Your Name" required="">
+                                    <input type="text" name="name" placeholder="@lang('backend.name')" required="">
                                 </div>
                                 <div class="single-input">
-                                    <input type="email" placeholder="Email Address" required="">
+                                    <input placeholder="@lang('backend.select-date')" type="text" name="date"
+                                           id="datepicker"
+                                           value="" class="calendar">
+                                </div>
+                            </div>
+                            <div class="input-half-wrapper mt--25 mb--30">
+                                <div class="single-input">
+                                    <input type="email" placeholder="@lang('backend.email')" name="email" required="">
+                                </div>
+                                <div class="single-input">
+                                    <input type="email" placeholder="@lang('backend.phone')" name="phone" required="">
                                 </div>
                             </div>
                             <select>
@@ -54,17 +64,10 @@
                                 <option value="3" disabled="">A disabled option</option>
                                 <option value="4">Potato</option>
                             </select>
-                            <div class="input-half-wrapper mt--25 mb--30">
-                                <div class="single-input">
-                                    <input placeholder="Select your date" type="text" name="checkIn" id="datepicker"
-                                           value="" class="calendar">
-                                </div>
-                                <div class="single-input">
-                                    <input type="text" id="timepicker" placeholder="Select Time"
-                                           class="ui-timepicker-input" autocomplete="off">
-                                </div>
-                            </div>
-                            <button type="submit" class="rts-btn btn-primary">SUBMIT MESSAGE</button>
+
+                            <button type="submit" class="rts-btn btn-primary mt-4">
+                                @lang('backend.send-message')
+                            </button>
                         </form>
                     </div>
                     <!-- appoinment inner content area end -->
