@@ -31,15 +31,6 @@
                                                         {!! validation_response('backend.title') !!}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label>
-                                                            @lang('backend.description')
-                                                        </label>
-                                                        <textarea name="description[{{ $lan->code }}]" type="text"
-                                                                  class="form-control"
-                                                                  id="elm{{$lan->code}}1"
-                                                                  placeholder="@lang('backend.description')"></textarea>
-                                                    </div>
-                                                    <div class="mb-3">
                                                         <label>@lang('backend.alt')</label>
                                                         <textarea class="form-control" rows="3"
                                                                   placeholder="@lang('backend.alt')"

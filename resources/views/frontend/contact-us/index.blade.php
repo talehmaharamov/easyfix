@@ -38,10 +38,11 @@
                         <h3 class="title animated fadeIn">
                             @lang('backend.get-appointment')
                         </h3>
-                        <form action="#" class="appoinment-form mt--40">
+                        <form action="{{ route('frontend.sendMessage') }}" method="POST" class="appoinment-form mt--40">
+                            @csrf
                             <div class="input-half-wrapper">
                                 <div class="single-input">
-                                    <input type="text" name="name" placeholder="@lang('backend.name')" required="">
+                                    <input type="text" name="name" placeholder="@lang('backend.full-name')" required="">
                                 </div>
                                 <div class="single-input">
                                     <input placeholder="@lang('backend.select-date')" type="text" name="date"
@@ -51,26 +52,58 @@
                             </div>
                             <div class="input-half-wrapper mt--25 mb--30">
                                 <div class="single-input">
+                                    <input type="text" name="address" placeholder="@lang('backend.address')"
+                                           required="">
+                                </div>
+                                <div class="single-input">
+                                    <input placeholder="@lang('backend.zip-code')" type="text" name="zip"
+                                           id="datepicker"
+                                           value="" class="calendar">
+                                </div>
+                            </div>
+                            <div class="input-half-wrapper mt--25 mb--30">
+                                <div class="single-input">
                                     <input type="email" placeholder="@lang('backend.email')" name="email" required="">
                                 </div>
                                 <div class="single-input">
-                                    <input type="email" placeholder="@lang('backend.phone')" name="phone" required="">
+                                    <input type="text" placeholder="@lang('backend.phone')" name="phone" required="">
                                 </div>
                             </div>
-                            <select>
-                                <option data-display="Select">Select an option</option>
-                                <option value="1">Some option</option>
-                                <option value="2">Another option</option>
-                                <option value="3" disabled="">A disabled option</option>
-                                <option value="4">Potato</option>
+                            <select name="service">
+                                <option data-display="Select">
+                                    @lang('backend.service')
+                                </option>
+                                @foreach($allServices as $serv)
+                                    <option value="{{ $serv->id }}">
+                                        {{ getLocaleTranslation($serv,'name') }}
+                                    </option>
+                                @endforeach
                             </select>
+
+                            <select name="type">
+                                <option data-display="Select">
+                                    @lang('backend.type')
+                                </option>
+                                <option value="1">
+                                    @lang('backend.repair')
+                                </option>
+                                <option value="2">
+                                    @lang('backend.check-up')
+                                </option>
+                            </select>
+
+                            <div class="mt--25 mb--30">
+                                <div class="single-input">
+                                    <textarea placeholder="@lang('backend.description')" name="description"
+                                              required=""></textarea>
+                                </div>
+                            </div>
 
                             <button type="submit" class="rts-btn btn-primary mt-4">
                                 @lang('backend.send-message')
                             </button>
                         </form>
                     </div>
-                    <!-- appoinment inner content area end -->
                 </div>
             </div>
         </div>

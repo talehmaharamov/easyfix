@@ -1,4 +1,4 @@
-<div class="rts-blog-area mt--50">
+<div class="rts-blog-area mt--50 mb--40">
     <div class="container">
         <div class="title-area-center">
             <h2 class="title">

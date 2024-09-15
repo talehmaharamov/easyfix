@@ -42,7 +42,7 @@
                                         {{ getLocaleTranslation($service,'name') }}
                                     </h5>
                                 </a>
-                                <a href="{{ route('frontend.selectedContent',$service->slug) }}"
+                                <a href="{{ route('frontend.service',$service->slug) }}"
                                    class="rts-btn btn-border radious-0">
                                     @lang('backend.load-more')
                                     <i class="fa-regular fa-arrow-up-right"></i>

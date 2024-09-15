@@ -11,6 +11,7 @@ use App\Models\Packages;
 use App\Models\Partner;
 use App\Models\Slider;
 use App\Models\Style;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -75,22 +76,41 @@ class HomeController extends Controller
 
     public function sendMessage(Request $request)
     {
+        /*
+         *   "name" => "Taleh Maharramov"
+  "date" => "09/15/2024"
+  "address" => "Uzeyir Hacibayli"
+  "zip" => "AZ1010"
+  "email" => "talehmeherrem85@gmail.com"
+  "phone" => "0505100171"
+  "service" => "3"
+  "description" => "finisdiq uje"
+         */
+//        dd($request->all());
         try {
             $receiver = settings('mail_receiver');
             $contact = new Contact();
             $contact->name = $request->name;
+            $contact->address = $request->address;
+            $contact->date = Carbon::parse($request->date)->format('Y-m-d');
+            $contact->zip = $request->zip;
             $contact->phone = $request->phone;
             $contact->email = $request->email;
-            $contact->subject = $request->subject;
+            $contact->type = $request->type;
+            $contact->service_id = $request->service;
             $contact->read_status = 0;
-            $contact->message = $request->message;
+            $contact->description = $request->description;
             $contact->save();
             $data = [
                 'name' => $contact->name,
+                'address' => $contact->address,
+                'zip' => $contact->zip,
+                'date' => Carbon::parse($contact->date)->format('m/d/Y'),
                 'phone' => $contact->phone,
                 'email' => $contact->email,
-                'subject' => $contact->subject,
-                'msg' => $contact->message
+                'type' => ($contact->type == 1) ? __('backend.repair') : __('backend.check-up'),
+                'service' => $contact->service->name,
+                'msg' => $contact->description
             ];
             Mail::send('backend.system.mail.send', $data, function ($message) use ($receiver) {
                 $message->to($receiver);

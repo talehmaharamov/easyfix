@@ -261,4 +261,8 @@
   'des-3' => 'residential plumbing',
   'des-4' => 'Air-source heat pump system that combines heating, cooling & heating solutions.',
   'select-date' => 'Select a date',
+  'full-name' => 'Full name',
+  'zip-code' => 'Zip code',
+  'repair' => 'Repair',
+  'check-up' => 'Check up',
 );

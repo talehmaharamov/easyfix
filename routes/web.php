@@ -3,11 +3,13 @@
 use App\Http\Controllers\Backend\System\LanguageController as LChangeLan;
 use App\Http\Controllers\Frontend\AboutController as FAbout;
 use App\Http\Controllers\Frontend\HomeController as FHome;
+use App\Models\AutoGenerate\Service;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/', 'as' => 'frontend.', 'middleware' => 'frontLanguage'], function () {
     Route::get('/contact', function () {
-        return view('frontend.contact-us.index');
+        $allServices = Service::where('status', 1)->orderBy('created_at', 'desc')->limit(8)->get();
+        return view('frontend.contact-us.index', get_defined_vars());
     })->name('contact-page');
     Route::get('/category/{slug}', [App\Http\Controllers\Frontend\CategoryController::class, 'show'])->name('selectedCategory');
     Route::post('/search', [\App\Http\Controllers\Frontend\HomeController::class, 'search'])->name('search');
