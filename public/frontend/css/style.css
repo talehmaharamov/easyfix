@@ -1,45 +1,3 @@
-/*=== Scss File indexing Here===========
-
-1. variables
-2.typography
-3.spacing
-4.reset
-5.forms
-6.mixins
-7.shortcode
-8.animations
-9.text-animation'
-10.sal
-11.header
-12.mobile-menu
-13.button
-14.nav
-15.banner
-16.swiper
-17.funfacts
-18.cta
-19.about
-20.common
-21.service
-22.projects
-23.working-process
-24.blog
-25. blog-details
-26.footer
-27.search-input
-28.side-bar
-29.team
-30.testimonials
-31.faq
-32.date-picker
-33.time-picker
-34.appoinment
-35.awesome-feedback
-36.contact
-37.back-to-top
-
-==================================================*/
-/* Default  */
 @import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,900&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap");
 :root {
@@ -17015,10 +16973,10 @@ p {
   margin: auto;
 }
 
-.swiper-slide{
-    width: 400px !important;
-    height: 300px !important;
-}
+/*.swiper-slide{*/
+/*    width: 400px !important;*/
+/*    height: 300px !important;*/
+/*}*/
 
 .title--between-wrapper {
   position: relative;
@@ -20811,4 +20769,28 @@ form.appoinment-form .input-half-wrapper .single-input input {
     .menu-btn {
         display: none;
     }
+}
+
+
+form.appoinment-form .single-input textarea {
+    height: 150px;
+    background: #FFFFFF;
+    display: block;
+    padding: 0 30px;
+    border-radius: 33px;
+    padding-top: 10px;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 4px 47px rgba(0, 0, 0, 0.01);
+}
+
+.descDesc{
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    margin-bottom: 25px;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
 }

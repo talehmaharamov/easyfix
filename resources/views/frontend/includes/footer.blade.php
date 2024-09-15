@@ -1,7 +1,4 @@
-
-
-
-<div class="rts-brand-area">
+<div class="rts-brand-area" style="margin-bottom: 40px !important;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -15,9 +12,7 @@
     </div>
 </div>
 
-
-
-<div class="rts-footer-one footer-bg-one mt--160 pb--85">
+<div class="rts-footer-one footer-bg-one mt--190 pb--85" style="margin-top: 40px;">
     <div class="container">
         <div class="row g-0 bg-cta-footer-one">
             <div class="col-lg-12">
@@ -119,6 +114,22 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('frontend.services') }}">
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                            <p>
+                                                @lang('backend.service')
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('frontend.projects') }}">
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                            <p>
+                                                @lang('backend.projects')
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('frontend.faq') }}">
                                             <i class="fa-solid fa-arrow-right"></i>
                                             <p>
@@ -138,16 +149,17 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="single-footer-component">
                         <div class="title-area">
                             <h5 class="title">
-                                @lang('backend.what-we-do')
+                                @lang('backend.service')
                             </h5>
                         </div>
                         <div class="body">
                             <div class="pages-footer">
                                 <ul>
-                                    @foreach($generalCategories as $genCat3)
+                                    @foreach($allServices->take(6) as $genCat3)
                                         <li>
                                             <a href="{{ route('frontend.selectedCategory',$genCat3->slug) }}">
                                                 <i class="fa-solid fa-arrow-right"></i>
@@ -161,6 +173,32 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="single-footer-component">
+                        <div class="title-area">
+                            <h5 class="title">
+                                @lang('backend.service')
+                            </h5>
+                        </div>
+                        <div class="body">
+                            <div class="pages-footer">
+                                <ul>
+                                    @foreach($allServices->skip(6)->take(6) as $genCat4)
+                                        <li>
+                                            <a href="{{ route('frontend.selectedCategory',$genCat4->slug) }}">
+                                                <i class="fa-solid fa-arrow-right"></i>
+                                                <p>
+                                                    {{ getLocaleTranslation($genCat4,'name') }}
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="single-footer-component last">
                         <div class="title-area">
                             <h5 class="title">
@@ -223,7 +261,7 @@
                     <p>
                         @lang('backend.copyright')
                         {{ now()->year }}.
-                        <a href="https://foz.az" style="color:#0a92d3">FOZ</a>
+                        <a href="https://sahn.az" style="color:#0a92d3">Sahn.az</a>
                         @lang('backend.all-right-reserved').
                     </p>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\AutoGenerate\Service;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Meta;
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
                 ->groupBy('page');
         })->get()->groupBy('page');
         view()->share([
+            'allServices' => Service::where('status', 1)->get(),
             'partners' => $partners,
             'generalCategories' => $generalCategories,
             'mainCategories' => $mainCategories,
