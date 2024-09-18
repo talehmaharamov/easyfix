@@ -28,17 +28,17 @@
                         @lang('backend.theese-tool')
                     </p>
                     <div class="main-wrapper-service">
-                        @foreach($generalCategories as $genCat4)
+                        @foreach($allServices->take(4) as $genCat0)
                             <div class="single-service-plumber-inner">
                                 <i class="fa-sharp fa-solid fa-circle-check"></i>
                                 <p>
-                                    {{ getLocaleTranslation($genCat4,'name') }}
+                                    {{ getLocaleTranslation($genCat0,'name') }}
                                 </p>
                             </div>
                         @endforeach
                     </div>
                     <div class="button-area-pl-about">
-                        <a href="#" class="rts-btn btn-primary">
+                        <a href="{{ route('frontend.services') }}" class="rts-btn btn-primary">
                             @lang('backend.load-more')
                             <i class="fa-regular fa-arrow-up-right"></i>
                         </a>
