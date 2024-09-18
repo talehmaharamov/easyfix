@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/', 'as' => 'frontend.', 'middleware' => 'frontLanguage'], function () {
     Route::get('/contact', function () {
-        $allServices = Service::where('status', 1)->orderBy('created_at', 'desc')->limit(8)->get();
+        $allServices = Service::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('frontend.contact-us.index', get_defined_vars());
     })->name('contact-page');
     Route::get('/category/{slug}', [App\Http\Controllers\Frontend\CategoryController::class, 'show'])->name('selectedCategory');

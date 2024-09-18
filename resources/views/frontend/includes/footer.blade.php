@@ -198,7 +198,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="single-footer-component last">
                         <div class="title-area">
                             <h5 class="title">

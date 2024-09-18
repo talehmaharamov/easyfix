@@ -24,8 +24,8 @@ class HomeController extends Controller
     {
         $partners = Partner::all();
         $sliders = Slider::where('status', 1)->orderBy('order', 'asc')->get();
-        $allProjects = Content::where('status', 1)->orderBy('created_at', 'desc')->limit(8)->get();
-        $allServices = Service::where('status', 1)->orderBy('created_at', 'desc')->limit(8)->get();
+        $allProjects = Content::where('status', 1)->orderBy('created_at', 'desc')->get();
+        $allServices = Service::where('status', 1)->orderBy('created_at', 'desc')->get();
 
         return view('frontend.index', get_defined_vars());
 
