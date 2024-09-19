@@ -1,5 +1,5 @@
 @extends('master.frontend')
-@section('title',__('title.contact'))
+@section('title',__('backend.contact'))
 @section('front')
     <div class="rts-bread-crumb-area ptb--65 bg_image bg-breadcrumb">
         <div class="container">
@@ -8,11 +8,15 @@
                     <div class="con-tent-main">
                         <div class="wrapper">
                             <div class="slug">
-                                <a href="{{ route('frontend.index') }}">HOME /</a>
-                                <a class="active" href="{{ route('frontend.index') }}">Contact</a>
+                                <a href="{{ route('frontend.index') }}">@lang('backend.home-page') /</a>
+                                <a class="active" href="{{ route('frontend.index') }}">
+                                    @lang('backend.contact')
+                                </a>
                             </div>
                             <div class="title">
-                                <a href="#">Contact Us</a>
+                                <a href="#">
+                                    @lang('backend.contact')
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -21,55 +25,85 @@
         </div>
     </div>
 
-    <div class="rts-make-an-appoinemtn-area rts-section-gap ">
+    <div class="rts-make-an-appoinemtn-area rts-section-gap" id="secSection">
         <div class="container">
             <div class="row align-items-center g-0 bg-appoinment">
                 <div class="col-lg-5 pr--80 pr_md--0 pr_sm--0">
-                    <!-- appoinment thumbnail area start -->
                     <div class="thumbnail appoinment-m-thumb">
                         <img src="{{asset('frontend/images/appoinment/01.jpg')}}" alt="appoinment-area">
-                        <div class="inner-wrapper">
-                            <h6>25</h6>
-                            <span>Years <br>
-                                Experience</span>
-                        </div>
                     </div>
-                    <!-- appoinment thumbnail area end -->
                 </div>
                 <div class="col-lg-7">
-                    <!-- appoinment inner content area start -->
                     <div class="appoinment-inner-content-wrapper">
                         <h3 class="title animated fadeIn">
-                            Make An Appointment
+                            @lang('backend.get-appointment')
                         </h3>
-                        <form action="#" class="appoinment-form mt--40">
+                        <form action="{{ route('frontend.sendMessage') }}" method="POST" class="appoinment-form mt--40">
+                            @csrf
                             <div class="input-half-wrapper">
                                 <div class="single-input">
-                                    <input type="text" placeholder="Your Name" required="">
+                                    <input type="text" name="name" placeholder="@lang('backend.full-name')" required="">
                                 </div>
                                 <div class="single-input">
-                                    <input type="email" placeholder="Email Address" required="">
+                                    <input placeholder="@lang('backend.select-date')" type="text" name="date"
+                                           id="datepicker"
+                                           value="" class="calendar">
                                 </div>
                             </div>
-                            <select>
-                                <option data-display="Select">Select an option</option>
-                                <option value="1">Some option</option>
-                                <option value="2">Another option</option>
-                                <option value="3" disabled="">A disabled option</option>
-                                <option value="4">Potato</option>
-                            </select>
                             <div class="input-half-wrapper mt--25 mb--30">
                                 <div class="single-input">
-                                    <input placeholder="Select your date" type="text" name="checkIn" id="datepicker" value="" class="calendar">
+                                    <input type="text" name="address" placeholder="@lang('backend.address')"
+                                           required="">
                                 </div>
                                 <div class="single-input">
-                                    <input type="text" id="timepicker" placeholder="Select Time" class="ui-timepicker-input" autocomplete="off">
+                                    <input placeholder="@lang('backend.zip-code')" type="text" name="zip"
+                                           id="datepicker"
+                                           value="" class="calendar">
                                 </div>
                             </div>
-                            <button type="submit" class="rts-btn btn-primary">SUBMIT MESSAGE</button>
+                            <div class="input-half-wrapper mt--25 mb--30">
+                                <div class="single-input">
+                                    <input type="email" placeholder="@lang('backend.email')" name="email" required="">
+                                </div>
+                                <div class="single-input">
+                                    <input type="text" placeholder="@lang('backend.phone')" name="phone" required="">
+                                </div>
+                            </div>
+                            <select name="service">
+                                <option data-display="Select">
+                                    @lang('backend.service')
+                                </option>
+                                @foreach($allServices as $serv)
+                                    <option value="{{ $serv->id }}">
+                                        {{ getLocaleTranslation($serv,'name') }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            <select name="type">
+                                <option data-display="Select">
+                                    @lang('backend.type')
+                                </option>
+                                <option value="1">
+                                    @lang('backend.repair')
+                                </option>
+                                <option value="2">
+                                    @lang('backend.check-up')
+                                </option>
+                            </select>
+
+                            <div class="mt--25 mb--30">
+                                <div class="single-input">
+                                    <textarea placeholder="@lang('backend.description')" name="description"
+                                              required=""></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="rts-btn btn-primary mt-4">
+                                @lang('backend.send-message')
+                            </button>
                         </form>
                     </div>
-                    <!-- appoinment inner content area end -->
                 </div>
             </div>
         </div>

@@ -34,7 +34,6 @@ class CategoryController extends Controller
                 $parentCategory = Category::find($request->parent);
                 $category = new Category();
                 $category->slug = $request->slug;
-                $parentCategory->subcategories()->save($category);
             } else {
                 $category = new Category();
                 $category->slug = $request->slug;

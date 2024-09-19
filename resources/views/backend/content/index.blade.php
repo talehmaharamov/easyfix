@@ -30,7 +30,7 @@
                             @foreach($contents as $content)
                                 <tr>
                                     <td>{{ $content->id }}</td>
-                                    <td>{{ $content->translate('az')->name ?? __('backend.translation-not-found') }}</td>
+                                    <td>{{ $content->translate('en')->name ?? __('backend.translation-not-found') }}</td>
                                     @include('backend.system.templates.components.dt-settings',['variable' => 'content','value' => $content])
                                 </tr>
                             @endforeach

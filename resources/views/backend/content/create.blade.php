@@ -42,16 +42,6 @@
                                                         {!! validation_response('backend.content') !!}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label>@lang('backend.short-description') <span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea name="short_description[{{ $lan->code }}]"
-                                                                  id="elm{{$lan->code}}2"
-                                                                  class="form-control"
-                                                                  required=""
-                                                                  placeholder="@lang('backend.short-description')"></textarea>
-                                                        {!! validation_response('backend.short-description') !!}
-                                                    </div>
-                                                    <div class="mb-3">
                                                         <label>@lang('backend.title')(Meta)</label>
                                                         <input name="meta_title[{{ $lan->code }}]" type="text"
                                                                class="form-control"
@@ -74,21 +64,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label>@lang('backend.category')</label>--}}
-{{--                                            <select class="form-control" name="category">--}}
-{{--                                                @foreach($mainCategories as $ctgry)--}}
-{{--                                                    <optgroup--}}
-{{--                                                        label="{{ $ctgry->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}">--}}
-{{--                                                        @foreach($ctgry->subcategories as $subCat)--}}
-{{--                                                            <option--}}
-{{--                                                                value="{{ $subCat->id }}">{{ $subCat->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</option>--}}
-{{--                                                        @endforeach--}}
-{{--                                                    </optgroup>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-                                        {{--                                        @livewire('content-category')--}}
                                         <div class="mb-3">
                                             <label>@lang('backend.slug') <span class="text-danger">*</span></label>
                                             <input name="slug" type="text" id="slug" class="form-control" required
@@ -96,13 +71,10 @@
                                             {!! validation_response('backend.slug') !!}
                                         </div>
                                         <div class="mb-3">
-                                            <label>PDF</label>
-                                            <input name="pdf" type="file" class="form-control"
-                                                   accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label>@lang('backend.photo') <span
-                                                    class="text-danger">*</span></label>
+                                            <label>
+                                                @lang('backend.photo')
+                                                <span class="text-danger">*</span>
+                                            </label>
                                             <input name="photo" type="file" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
@@ -132,6 +104,7 @@
                 const slug = nameInputValue.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
                 slugInput.val(slug);
             }
+
             $('#nameen').on('input', generateSlugFromName);
         });
     </script>

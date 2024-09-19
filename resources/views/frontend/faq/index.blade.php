@@ -8,7 +8,7 @@
                     <div class="con-tent-main">
                         <div class="wrapper">
                             <div class="slug">
-                                <a href="{{ route('frontend.index') }}">HOME /</a>
+                                <a href="{{ route('frontend.index') }}">@lang('backend.home-page') /</a>
                                 <a class="active">
                                     @lang('backend.faq')
                                 </a>
@@ -44,7 +44,7 @@
                                          class="accordion-collapse collapse @if($loop->first) show @endif "
                                          aria-labelledby="heading{{ $faqKey }}" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <div class="inner">
+                                            <div class="inner" >
                                                 <div class="content">
                                                     <p class="disc">
                                                         {!! getLocaleTranslation($faq,'description') !!}

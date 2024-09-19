@@ -42,15 +42,6 @@
                                                         {!! validation_response('backend.content') !!}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label>@lang('backend.short-description') <span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea name="short_description[{{ $lan->code }}]"
-                                                                  id="elm{{$lan->code}}2"
-                                                                  class="form-control"
-                                                                  required="">{!! $content->translate($lan->code)->short_description ?? __('backend.translation-not-found') !!}</textarea>
-                                                        {!! validation_response('backend.short-description') !!}
-                                                    </div>
-                                                    <div class="mb-3">
                                                         <label>@lang('backend.title')(Meta)</label>
                                                         <input name="meta_title[{{ $lan->code }}]" type="text"
                                                                class="form-control"
@@ -75,34 +66,6 @@
                                             <label>@lang('backend.slug')</label>
                                             <input name="slug" id="slug" type="text" class="form-control" required=""
                                                    value="{{ $content->slug }}">
-                                        </div>
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label>@lang('backend.category')</label>--}}
-{{--                                            <select class="form-control" name="category">--}}
-{{--                                                @foreach($mainCategories as $ctgry)--}}
-{{--                                                    <optgroup--}}
-{{--                                                        label="{{ $ctgry->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}">--}}
-{{--                                                        @foreach($ctgry->subcategories as $subCat)--}}
-{{--                                                            <option--}}
-{{--                                                                value="{{ $subCat->id }}"--}}
-{{--                                                                @if($content->category_id == $subCat->id) selected @endif>{{ $subCat->translate(app()->getLocale())->name ?? __('backend.translation-not-found') }}</option>--}}
-{{--                                                        @endforeach--}}
-{{--                                                    </optgroup>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-                                        <div class="mb-3">
-                                            <label>PDF</label>
-                                            <div class="d-flex align-items-center">
-                                                <input name="pdf" type="file" class="form-control "
-                                                       accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
-                                                @if(file_exists($content->pdf))
-                                                    <a style="margin-left: 20px" href="{{ asset($content->pdf) }}"
-                                                       class="btn btn-primary col-2"><i
-                                                            class="fas fa-download"></i> PDF @lang('backend.download')
-                                                    </a>
-                                                @endif
-                                            </div>
                                         </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.photo') <span

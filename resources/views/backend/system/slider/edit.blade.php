@@ -30,14 +30,6 @@
                                                         {!! validation_response('backend.title') !!}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label>
-                                                            @lang('backend.description')
-                                                        </label>
-                                                        <textarea name="description[{{ $lan->code }}]" type="text"
-                                                                  class="form-control"
-                                                                  id="elm{{$lan->code}}1">{!! getLangTranslation($slider,'description',$lan) !!}</textarea>
-                                                    </div>
-                                                    <div class="mb-3">
                                                         <label>@lang('backend.alt')</label>
                                                         <textarea class="form-control" rows="7"
                                                                   name="alt[{{$lan->code}}]">{{ getLangTranslation($slider,'alt',$lan) }}</textarea>
