@@ -2,15 +2,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="brand-plumbnail-wrapper">
-                    @foreach($partners as $partner)
-                        <img src="{{ asset($partner->photo) }}" alt="{{ $partner->alt }}">
-                    @endforeach
+                <div class="swiper-container brand-swiper">
+                    <div class="swiper-wrapper">
+                        @foreach($partners as $partner)
+                            <div class="swiper-slide">
+                                <img src="{{ asset($partner->photo) }}" alt="{{ $partner->alt }}">
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="rts-footer-one footer-bg-one mt--190 pb--85" style="margin-top: 40px;">
     <div class="container">
@@ -268,3 +275,27 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+ <script>
+     document.addEventListener('DOMContentLoaded', function () {
+         var swiper = new Swiper('.brand-swiper', {
+             slidesPerView: 4, // Hər dəfə göstərilən slaydların sayı
+             spaceBetween: 30, // Slaydlar arası məsafə
+             loop: true, // Slaydlar sonsuz dövr etsin
+             pagination: {
+                 el: '.swiper-pagination',
+                 clickable: true,
+             },
+             navigation: {
+                 nextEl: '.swiper-button-next',
+                 prevEl: '.swiper-button-prev',
+             },
+             autoplay: {
+                 delay: 2500,
+                 disableOnInteraction: false,
+             },
+         });
+     });
+
+ </script>
